@@ -1,0 +1,35 @@
+{
+  "name": "namste--react",
+  "version": "1.0.0",
+  "description": "this is the react app",
+  "scripts": {
+    "test": "jest",
+    "start": "parcel index.html"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kartikgajjar7/React-main.git"
+  },
+  "author": "Kartik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kartikgajjar7/React-main/issues"
+  },
+  "homepage": "https://github.com/kartikgajjar7/React-main#readme",
+  "devDependencies": {
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@fontsource/roboto": "^5.0.8",
+    "@mui/material": "^5.14.4",
+    "parcel": "^2.9.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist": [
+    "last 2 version"
+  ]
+}
