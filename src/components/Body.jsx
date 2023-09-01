@@ -1,40 +1,10 @@
-import { useEffect, useState } from "react";
-import Header from "./Header";
 import Shimmer_cont from "./simmer_cont";
 import Card from "./Card";
-import { Switch } from "@mui/material";
-import Shimmer from "./Shimmer";
 import Offercard from "./offercard";
+import { useEffect } from "react";
+import Crousel from "./Crousel";
+import { useState } from "react";
 let count = 0;
-
-document.addEventListener("click", (e) => {
-  const slider = document.getElementsByClassName("slider")[0];
-  const sliderIndex = parseInt(
-    getComputedStyle(slider).getPropertyValue("--slider-index")
-  );
-  if (
-    (e.target.matches(".left_slide_btn") ||
-      e.target.closest(".left_slide_btn")) &&
-    count > 0
-  ) {
-    count--;
-    console.log("count after left clicked: " + count);
-    console.log(e.target);
-    console.log("left clicked");
-    slider.style.setProperty("--slider-index", sliderIndex - 1);
-  }
-
-  if (
-    (e.target.matches(".right_slide_btn") ||
-      e.target.closest(".right_slide_btn")) &&
-    count < 27
-  ) {
-    count++;
-    console.log("count after right clicked: " + count);
-    console.log("right clicked");
-    slider.style.setProperty("--slider-index", sliderIndex + 1);
-  }
-});
 
 const Body = () => {
   const [resdata, SetResData] = useState([]);
@@ -43,24 +13,19 @@ const Body = () => {
     async function check() {
       try {
         const data = await fetch(
-          "https://swiggy-clone-wjqx.onrender.com/api/v1/restaurant?location=patna&page=0"
+          "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.022505&lng=72.5713621&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
         );
-        console.log(data);
         const share = await data.json();
+        // console.log(share, "share");
         SetResData(share);
-        setit(2);
-        console.log("this data" + resdata);
       } catch {
-        console.log("error");
+        console.log("error in feching the data");
       }
     }
     check();
   }, []);
-
   return (
-    <div className="app">
-      <Header />
-
+    <div>
       <div className="uppar_body">
         <div className="set">
           <div className="left">
@@ -99,19 +64,23 @@ const Body = () => {
         <Shimmer_cont />
       ) : (
         <div className="container_main">
-          <div className="offers_div">
-            <h1 className="cr_title">Best offers for you</h1>
-            <div className="offer_cont">
-              <Offercard url="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_850,h_504/rng/md/carousel/production/186a71018df06ce2bea1db55086d32e4" />
-              <Offercard url="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_850,h_504/rng/md/carousel/production/daa94a52b514b3c415568b7f36c2eefd" />
-              <Offercard url="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_850,h_504/rng/md/carousel/production/2e54588fcfbfae32c57d1d4d3515f6e5" />
-            </div>
-          </div>
+          <Crousel />
           <div className="crousel">
             <div className="upper">
               <h1 className="cr_title">Top restaurant chains in Ahmedabad</h1>
               <div className="buttons">
-                <div class="left_slide_btn">
+                <div
+                  onClick={(e) => {
+                    const slider = document.getElementsByClassName("slider")[0];
+                    if (
+                      e.target.matches(".left_slide_btn") ||
+                      e.target.closest(".left_slide_btn")
+                    ) {
+                      slider.scrollLeft -= 220;
+                    }
+                  }}
+                  className="left_slide_btn"
+                >
                   <svg
                     width="17"
                     height="17"
@@ -128,7 +97,19 @@ const Body = () => {
                     ></path>
                   </svg>
                 </div>
-                <div class="right_slide_btn">
+                <div
+                  className="right_slide_btn"
+                  onClick={(e) => {
+                    const slider = document.getElementsByClassName("slider")[0];
+
+                    if (
+                      e.target.matches(".right_slide_btn") ||
+                      e.target.closest(".right_slide_btn")
+                    ) {
+                      slider.scrollLeft += 220;
+                    }
+                  }}
+                >
                   <svg
                     width="17"
                     height="17"
@@ -149,9 +130,12 @@ const Body = () => {
             </div>
             <div className="perent_slider">
               <div className="slider">
-                {resdata.data?.map((data) => (
-                  <Card className="cards" res_data={data} />
-                ))}
+                {console.log("mapping", "mapping")}
+                {resdata.data?.cards[2]?.card.card.gridElements?.infoWithStyle.restaurants.map(
+                  (data) => (
+                    <Card res_data={data} />
+                  )
+                )}
               </div>
             </div>
           </div>
@@ -160,9 +144,12 @@ const Body = () => {
             Restaurants with online food delivery in Ahmedabad
           </h1>
           <div className="give_padding">
-            {resdata.data?.map((data) => (
-              <Card res_data={data} />
-            ))}
+            {console.log("mapping", "mapping")}
+            {resdata.data?.cards[5]?.card.card.gridElements?.infoWithStyle.restaurants.map(
+              (data) => (
+                <Card res_data={data} />
+              )
+            )}
           </div>
         </div>
       )}

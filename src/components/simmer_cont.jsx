@@ -1,7 +1,7 @@
 import Shimmer from "./Shimmer";
 const Shimmer_cont = () => {
   return (
-    <div className="container_main">
+    <div className="container_main_shimmer">
       <Shimmer />
       <Shimmer />
       <Shimmer />
@@ -13,7 +13,7 @@ const Shimmer_cont = () => {
       <Shimmer />
       <Shimmer />
       <Shimmer />
-      <Shimmer /> <Shimmer /> <Shimmer /> <Shimmer />;
+      <Shimmer /> <Shimmer /> <Shimmer /> <Shimmer />
     </div>
   );
 };
