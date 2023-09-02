@@ -11,7 +11,8 @@ const Upperinfo = ({ data }) => {
         </div>
         <div className="lf_lf">
           <div className="asiuhd">
-            <img className="sedfs"
+            <img
+              className="sedfs"
               src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Five_Pointed_Star_Solid.svg"
               alt="svg"
             />

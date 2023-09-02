@@ -1097,6 +1097,12 @@ svg:not(:root) {
     justify-content: center;
 }
 
+.text_off {
+    font-family: 'Kanit', sans-serif;
+    font-size: 30px;
+    margin-top: 30px;
+}
+
 .tag_nav {
     margin-left: 10px;
     font-family: 'Kanit', sans-serif;
@@ -1152,6 +1158,15 @@ svg:not(:root) {
     color: inherit;
 }
 
+.sfaasd {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
 .sahua {
     padding: 16px;
     font-weight: 600;
@@ -1177,6 +1192,7 @@ svg:not(:root) {
     justify-content: center;
     flex-direction: row;
 }
+
 @-webkit-keyframes shimmer {
     0% {
         background-position: -100% 0;
