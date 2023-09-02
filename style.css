@@ -565,7 +565,7 @@
 .child_cont {
     height: 100%;
     width: 800px;
-    margin-top: 20px;
+    margin-top: 55px;
     max-width: 800px;
 
     display: flex;
@@ -761,6 +761,12 @@
     justify-content: start;
 
     align-items: center
+}
+
+.asdasddds {
+    justify-content: end;
+    display: flex;
+    align-items: end;
 }
 
 .Copen_card_cont {

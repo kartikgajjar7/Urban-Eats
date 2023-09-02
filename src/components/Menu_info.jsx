@@ -47,7 +47,7 @@ export const Menu_info = () => {
         <div className="top_bar_small">
           <div className="res_name_rh">Home / Ahmedabad / McDonald's</div>
           <div className="search_rh center">
-            <Link to="">
+            <Link className="asdasddds" to="">
               <svg
                 className="svg_mag"
                 xmlns="http://www.w3.org/2000/svg"

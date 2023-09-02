@@ -4,7 +4,7 @@
   "description": "this is the react app",
   "scripts": {
     "test": "jest",
-    "start": "rm -rf dist-dev .parcel-cache && parcel --dist-dir dist-dev index.html"
+    "start": "rm -rf dist-dev .parcel-cache && parcel index.html"
   },
   "type": "module",
   "repository": {
@@ -28,6 +28,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.15.0",
+    "uuid4": "^2.0.3",
     "vite": "^4.4.9"
   },
   "browserslist": [
