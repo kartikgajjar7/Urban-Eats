@@ -6,8 +6,8 @@ import Coupen from "./Coupen.jsx";
 import { useEffect } from "react";
 import { Link, json } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import useResData from "../custom_hooks/res_menu/useResData.js";
-import useRestaurantId from "../custom_hooks/res_menu/userestaurantid.js";
+import useResData from "../CustomHooks/res_menu/useResData.js";
+import useRestaurantId from "../CustomHooks/res_menu/userestaurantid.js";
 
 export const Menu_info = () => {
   const { resid } = useParams();
