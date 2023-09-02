@@ -26,7 +26,7 @@ export const Search_res = () => {
         <button className="sahua">
           <Link to="..">
             <svg
-              class="Back_backIcon__1LhL_"
+              className="Back_backIcon__1LhL_"
               viewBox="0 0 32 32"
               height="18"
               width="18"

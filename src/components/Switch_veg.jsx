@@ -1,8 +1,8 @@
 const Switch_veg = () => {
   return (
     <>
-      <input type="checkbox" id="check" class="toggle" />
-      <label for="check"></label>
+      <input type="checkbox" id="check" className="toggle" />
+      <label htmlFor="check"></label>
     </>
   );
 };

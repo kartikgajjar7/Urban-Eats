@@ -301,3 +301,4 @@ export default Menu_info;
 
 
 The latitude of Ahmedabad, Gujarat, India is 23.033863, and the longitude is 72.585022.
+

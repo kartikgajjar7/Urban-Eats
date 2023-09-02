@@ -67,51 +67,51 @@ const Crousel = () => {
       </div>
       <div className="perent_slider">
         <div className="sliderw">
-          <div class="img_off_cont">
+          <div className="img_off_cont">
             <img
-              class="img_offer"
+              className="img_offer"
               src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_850,h_504/rng/md/carousel/production/625d536975ea7b99ccb7ae8818e459c7"
               alt=""
             />
           </div>
-          <div class="img_off_cont">
+          <div className="img_off_cont">
             <img
-              class="img_offer"
+              className="img_offer"
               src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_850,h_504/rng/md/carousel/production/8c4ffd9665ae560b85473e1b165a5437"
               alt=""
             />
           </div>
-          <div class="img_off_cont">
+          <div className="img_off_cont">
             <img
-              class="img_offer"
+              className="img_offer"
               src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_850,h_504/rng/md/carousel/production/eecdd06d0cf7d02c6468a77dbf797735"
               alt=""
             />
           </div>
-          <div class="img_off_cont">
+          <div className="img_off_cont">
             <img
-              class="img_offer"
+              className="img_offer"
               src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_850,h_504/rng/md/carousel/production/186a71018df06ce2bea1db55086d32e4"
               alt=""
             />
           </div>
-          <div class="img_off_cont">
+          <div className="img_off_cont">
             <img
-              class="img_offer"
+              className="img_offer"
               src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_850,h_504/rng/md/carousel/production/186a71018df06ce2bea1db55086d32e4"
               alt=""
             />
           </div>
-          <div class="img_off_cont">
+          <div className="img_off_cont">
             <img
-              class="img_offer"
+              className="img_offer"
               src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_850,h_504/rng/md/carousel/production/186a71018df06ce2bea1db55086d32e4"
               alt=""
             />
           </div>
-          <div class="img_off_cont">
+          <div className="img_off_cont">
             <img
-              class="img_offer"
+              className="img_offer"
               src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_850,h_504/rng/md/carousel/production/186a71018df06ce2bea1db55086d32e4"
               alt=""
             />

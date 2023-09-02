@@ -11,9 +11,9 @@ const Header = () => {
           <Link className="asddd" to="/restaurant/123">
             <li className="itemt">
               <div className="navdiv">
-                <span class="_3yZyp">
+                <span className="_3yZyp">
                   <svg
-                    class="_1GTCc"
+                    className="_1GTCc"
                     viewBox="5 -1 12 25"
                     height="17"
                     width="17"
@@ -30,7 +30,7 @@ const Header = () => {
             <li className="itemt">
               <div className="navdiv">
                 <svg
-                  class="_1GTCc"
+                  className="_1GTCc"
                   viewBox="6 -1 12 25"
                   height="19"
                   width="19"
@@ -46,7 +46,7 @@ const Header = () => {
             <li className="itemt">
               <div className="navdiv">
                 <svg
-                  class="_1GTCc"
+                  className="_1GTCc"
                   viewBox="6 0 12 24"
                   height="19"
                   width="18"
@@ -62,9 +62,9 @@ const Header = () => {
           <Link className="asddd" to="/restaurant/123">
             <li className="itemt">
               <div className="navdiv">
-                <span class="_3yZyp">
+                <span className="_3yZyp">
                   <svg
-                    class="_1GTCsc _2MSid"
+                    className="_1GTCsc _2MSid"
                     viewBox="-1 0 37 32"
                     height="20"
                     width="20"
@@ -72,7 +72,7 @@ const Header = () => {
                   >
                     <path d="M4.438 0l-2.598 5.11-1.84 26.124h34.909l-1.906-26.124-2.597-5.11z"></path>
                   </svg>
-                  <span class="_2vS77">0</span>
+                  <span className="_2vS77">0</span>
                 </span>
                 <p className="tag_nav"> Cart</p>
               </div>

@@ -6,46 +6,25 @@ import Coupen from "./Coupen.jsx";
 import { useEffect } from "react";
 import { Link, json } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import useResData from "../custom_hooks/res_menu/useResData.js";
+import useRestaurantId from "../custom_hooks/res_menu/userestaurantid.js";
+
 export const Menu_info = () => {
-  [jsonn, setmjson] = useState(null);
   const { resid } = useParams();
-  console.log(resid);
-  const getresdata = async () => {
-    // console.log("function set called");
-    const menu = await fetch(
-      `https://corsproxy.io/?https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=23.033863&lng=72.585022&restaurantId=${resid}`
-    );
-    const output = await menu.json();
-    setmjson(output);
-    // console.log(mjson);
-  };
-  useEffect(() => {
-    // console.log("use effect colled");
-    getresdata();
-  }, []);
+  const res_data = useRestaurantId(resid);
 
-  if (jsonn === null) return;
-  console.log(jsonn);
-  const obj_upperinfo = {
-    name: `${jsonn?.data?.cards[0]?.card?.card?.info?.name}`,
-    cusines: `${jsonn.data.cards[0].card.card.info.cuisines}`,
-    diliverytime: `${jsonn.data.cards[0].card.card.info.sla.deliveryTime}`,
-    rating_num: `${jsonn.data.cards[0].card.card.info.avgRating}`,
-    locality: `${jsonn.data.cards[0].card.card.info.locality} ${jsonn.data.cards[0].card.card.info.sla.lastMileTravelString}`,
-    cost_for_two: `${jsonn.data.cards[0].card.card.info.costForTwoMessage}`,
-  };
+  if (res_data === null) return;
 
-  // const name = `${json.data.cards[1].card.card.info.name}`;
-  // const cusines = `${json.data.cards[1].card.card.info.cuisines}`;
-  // const diliverytime = `${json.data.cards[1].card.card.info.sla.deliveryTime}`;
-  // const rating_num = `${json.data.cards[1].card.card.info.avgRating}`;
-  // const cost_for_two = `${json.data.cards[1].card.card.info.costForTwoMessage}`;
+  const obj_upperinfo = useResData(res_data);
 
   return (
     <div className="perent_div">
       <div className="child_cont">
         <div className="top_bar_small">
-          <div className="res_name_rh">Home / Ahmedabad / McDonald's</div>
+          <div className="res_name_rh">
+            {" "}
+            {`Home / ${obj_upperinfo.city} / ${obj_upperinfo.name}`}
+          </div>
           <div className="search_rh center">
             <Link className="asdasddds" to="">
               <svg
@@ -60,9 +39,9 @@ export const Menu_info = () => {
                   r="84"
                   fill="none"
                   stroke="#000"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="8"
                 />
                 <line
                   x1="175.4"
@@ -71,9 +50,9 @@ export const Menu_info = () => {
                   y2="224"
                   fill="none"
                   stroke="#000"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="8"
                 />
               </svg>
             </Link>
