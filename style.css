@@ -970,6 +970,7 @@ input[type="checkbox"].toggle:checked + label::after {
 
 .ppeerr {
     display: flex;
+    width: 800px;
     flex-direction: column;
 }
 

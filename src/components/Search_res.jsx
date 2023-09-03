@@ -1,23 +1,19 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 export const Search_res = () => {
   [inputx, setinputx] = useState("");
   [result, setresult] = useState("");
-
+  const { resname } = useParams();
+  console.log(resname);
   const Handlesearch = async (query) => {
-    console.log(query);
     // const api_result = await fetch(
     //   ``
     // );
     const api_result = await fetch(
-      `https://corsproxy.io/?https://www.swiggy.com/dapi/menu/pl/search?lat=23.022505&lng=72.5713621&restaurantId=52630&query=${query}`
-    );
-    console.log(
-      `https://corsproxy.io/?https://www.swiggy.com/dapi/menu/pl/search?lat=23.022505&lng=72.5713621&restaurantId=52630&query=${query}&submitAction=ENTER`
+      `https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/search/suggest?lat=23.022505&lng=72.5713621&str=${query}&trackingId=undefined`
     );
 
     const json_data = await api_result.json();
-    console.log(json_data);
   };
 
   return (
@@ -37,7 +33,7 @@ export const Search_res = () => {
         </button>
         <input
           value={inputx}
-          placeholder="Search in McDonald's"
+          placeholder={`Search in ${resname}`}
           type="text"
           onChange={(e) => {
             setinputx(e.target.value);

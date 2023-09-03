@@ -8,15 +8,18 @@ import { Link, json } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import useResData from "../CustomHooks/res_menu/useResData.js";
 import useRestaurantId from "../CustomHooks/res_menu/userestaurantid.js";
-
+import Res_Acc from "./Res_Acc.jsx";
 export const Menu_info = () => {
   const { resid } = useParams();
   const res_data = useRestaurantId(resid);
-
   if (res_data === null) return;
+  const cat_data =
+    res_data.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards.filter(
+      (data) => data.card.card?.["@type"].includes("ItemCategory")
+    );
+  console.log(cat_data, "catdata");
 
   const obj_upperinfo = useResData(res_data);
-
   return (
     <div className="perent_div">
       <div className="child_cont">
@@ -26,7 +29,7 @@ export const Menu_info = () => {
             {`Home / ${obj_upperinfo.city} / ${obj_upperinfo.name}`}
           </div>
           <div className="search_rh center">
-            <Link className="asdasddds" to="">
+            <Link className="asdasddds" to="search">
               <svg
                 className="svg_mag"
                 xmlns="http://www.w3.org/2000/svg"
@@ -65,9 +68,9 @@ export const Menu_info = () => {
           <Switch_veg />
         </div>
         <div className="asmod"></div>
-        <Drop_cont title="asdasd" />
-        <Drop_cont title="cvcgawd" />
-        <Drop_cont title="adawsd" />
+        {cat_data.map((cat_data_app) => (
+          <Res_Acc cat_data={cat_data_app.card.card} />
+        ))}
       </div>
     </div>
   );
