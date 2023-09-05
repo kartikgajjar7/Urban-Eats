@@ -10,6 +10,8 @@ import useResData from "../CustomHooks/res_menu/useResData.js";
 import useRestaurantId from "../CustomHooks/res_menu/userestaurantid.js";
 import Res_Acc from "./Res_Acc.jsx";
 export const Menu_info = () => {
+  const [veg, setveg] = useState(false);
+  const [switchveg, setswitchveg] = useState(false);
   const { resid } = useParams();
   const res_data = useRestaurantId(resid);
   if (res_data === null) return;
@@ -20,6 +22,11 @@ export const Menu_info = () => {
   const Search_Data = cat_data.map((data) =>
     data.card.card.itemCards?.map((data) => data.card.info)
   );
+
+  const handlevagswitch = () => {
+    console.log("switch was", switchveg);
+    setswitchveg(!switchveg);
+  };
 
   const ITEMS_SEARCHED = Search_Data.flat();
 
@@ -74,11 +81,23 @@ export const Menu_info = () => {
         <Coupen />
         <div className="veg">
           <p className="vegonly">Veg Only</p>
-          <Switch_veg />
+          <input
+            value={switchveg}
+            onChange={handlevagswitch}
+            type="checkbox"
+            id="check"
+            className="toggle"
+          />
+          <label htmlFor="check"></label>
         </div>
         <div className="asmod"></div>
         {cat_data.map((cat_data_app, index) => (
-          <Res_Acc key={index} cat_data={cat_data_app.card.card} />
+          <Res_Acc
+            veg={switchveg}
+            setveg={setveg}
+            key={index}
+            cat_data={cat_data_app.card.card}
+          />
         ))}
       </div>
     </div>
