@@ -4,6 +4,7 @@
   "description": "this is the react app",
   "scripts": {
     "test": "jest",
+    "build": "npx parcel build index.html",
     "start": "rm -rf dist-dev .parcel-cache && parcel index.html"
   },
   "type": "module",
