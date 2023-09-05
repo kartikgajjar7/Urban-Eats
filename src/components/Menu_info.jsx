@@ -77,8 +77,8 @@ export const Menu_info = () => {
           <Switch_veg />
         </div>
         <div className="asmod"></div>
-        {cat_data.map((cat_data_app) => (
-          <Res_Acc cat_data={cat_data_app.card.card} />
+        {cat_data.map((cat_data_app, index) => (
+          <Res_Acc key={index} cat_data={cat_data_app.card.card} />
         ))}
       </div>
     </div>

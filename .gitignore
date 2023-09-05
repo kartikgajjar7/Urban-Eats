@@ -2,3 +2,5 @@
 /dist
 .parcel-cache
 /dist-dev
+# Local Netlify folder
+.netlify
