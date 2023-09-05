@@ -26,7 +26,6 @@ const Res_Acc = ({ veg, setveg, cat_data }) => {
         });
       });
 
-  console.log(lengthss, "||||", cat_data.title);
   return (
     <>
       <div id="this_main" className="main_drop_cont">
