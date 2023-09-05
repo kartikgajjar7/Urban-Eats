@@ -30,7 +30,7 @@ const Root = () => {
             element={<Restaurant />}
           >
             <Route index element={<Menu_info />} />
-            <Route index path="/search" element={<Search_res />} />
+            <Route index path="search" element={<Search_res />} />
           </Route>
         </Route>
       </Routes>

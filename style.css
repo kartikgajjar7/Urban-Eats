@@ -589,6 +589,10 @@
     justify-content: flex-start;
 }
 
+.results {
+    margin-top: 25px;
+}
+
 .res_name_rh {
     height: 100%;
     width: 93%;
@@ -966,6 +970,15 @@ input[type="checkbox"].toggle:checked + label::after {
     height: 0.5px;
     width: 100%;
     margin: 20px 0;
+}
+
+.items_in_search {
+    font-family: 'Kanit', sans-serif;
+    color: #3e4152;
+    ;
+    cursor: pointer;
+    font-size: 20px;
+
 }
 
 .ppeerr {

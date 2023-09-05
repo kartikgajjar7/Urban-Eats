@@ -14,10 +14,14 @@ export const Menu_info = () => {
   const res_data = useRestaurantId(resid);
   if (res_data === null) return;
   const cat_data =
-    res_data.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards.filter(
+    res_data.data.cards[2].groupedCard?.cardGroupMap?.REGULAR.cards.filter(
       (data) => data.card.card?.["@type"].includes("ItemCategory")
     );
-  console.log(cat_data, "catdata");
+  const Search_Data = cat_data.map((data) =>
+    data.card.card.itemCards?.map((data) => data.card.info)
+  );
+
+  const ITEMS_SEARCHED = Search_Data.flat();
 
   const obj_upperinfo = useResData(res_data);
   return (
@@ -29,7 +33,12 @@ export const Menu_info = () => {
             {`Home / ${obj_upperinfo.city} / ${obj_upperinfo.name}`}
           </div>
           <div className="search_rh center">
-            <Link className="asdasddds" to="search">
+            <Link
+              state={{ ITEMS: ITEMS_SEARCHED }}
+              key="unique-key"
+              className="asdasddds"
+              to="search"
+            >
               <svg
                 className="svg_mag"
                 xmlns="http://www.w3.org/2000/svg"
@@ -76,5 +85,3 @@ export const Menu_info = () => {
   );
 };
 export default Menu_info;
-
-// data = { obj_upperinfo };

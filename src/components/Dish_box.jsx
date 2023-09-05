@@ -1,15 +1,13 @@
 const Dis_box = ({ item_info }) => {
   const take_data = item_info?.card.info;
-  console.log(item_info);
+
   return (
     <>
       <div className="ppeerr">
         <div className="dis_box_cont">
           <div className="disrh">
             <img
-              onClick={() => {
-                setflag(!flag);
-              }}
+              onClick={() => {}}
               className="vegl"
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Veg_symbol.svg/1200px-Veg_symbol.svg.png"
               alt=""

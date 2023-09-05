@@ -8,7 +8,7 @@ import { useState } from "react";
 import useOnlineStatus from "../CustomHooks/res_menu/useOnlineStatus";
 const Body = () => {
   const status = useOnlineStatus();
-  console.log("Status:", status); // Add this line for debugging
+  // console.log("Status:", status); // Add this line for debugging
 
   const [resdata, SetResData] = useState([]);
 
