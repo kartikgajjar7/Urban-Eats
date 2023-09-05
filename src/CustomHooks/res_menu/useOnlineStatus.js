@@ -13,7 +13,7 @@ const useOnlineStatus = () => {
       setstatus(false);
     });
   });
-  console.log(status);
+
   return status;
 };
 export default useOnlineStatus;
