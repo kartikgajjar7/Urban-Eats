@@ -41,7 +41,7 @@ const Res_Acc = ({ veg, setveg, cat_data }) => {
           />
         </div>
 
-        {cat_data.itemCards && show
+        {/* {cat_data.itemCards && show
           ? cat_data.itemCards.map((data, index) => {
               if (veg) {
                 return data?.card?.info?.itemAttribute?.vegClassifier ===
@@ -65,6 +65,25 @@ const Res_Acc = ({ veg, setveg, cat_data }) => {
                 return <Dis_box key={keys} item_info={item} />;
               });
             })
+          : null} */}
+        {cat_data.itemCards && show
+          ? cat_data.itemCards
+              .filter(
+                (data) =>
+                  !veg ||
+                  data?.card?.info?.itemAttribute?.vegClassifier === "VEG"
+              )
+              .map((data, index) => <Dis_box key={index} item_info={data} />)
+          : show
+          ? cat_data.categories?.map((data, index) =>
+              data.itemCards
+                .filter(
+                  (item) =>
+                    !veg ||
+                    item?.card?.info?.itemAttribute?.vegClassifier === "VEG"
+                )
+                .map((item, keys) => <Dis_box key={keys} item_info={item} />)
+            )
           : null}
 
         <div className="shuthefuckup"></div>

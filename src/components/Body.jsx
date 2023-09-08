@@ -3,38 +3,55 @@ import Card from "./Card";
 import Offercard from "./offercard";
 import { useEffect } from "react";
 import Crousel from "./Crousel";
+import Shimmer_cont from "./simmer_cont";
 import { useState } from "react";
-
 import useOnlineStatus from "../CustomHooks/res_menu/useOnlineStatus";
+import { useLocation } from "react-router-dom";
+import { Location_Unserviceable } from "./Location_Unserviceable";
 const Body = () => {
   const status = useOnlineStatus();
-  // console.log("Status:", status); // Add this line for debugging
+  const From_where = useLocation();
 
+  const [userinput, setuserinput] = useState("");
   const [resdata, SetResData] = useState([]);
-
   useEffect(() => {
+    console.log("use effect called");
+    SetResData([]);
     async function check() {
       try {
-        const data = await fetch(
-          "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.022505&lng=72.5713621&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-        );
-        const share = await data.json();
-        // console.log(share, "share");
-        SetResData(share);
-      } catch {
-        console.log("error in feching the data");
-      }
+        if (From_where.state === undefined || From_where.state === null) {
+          const data = await fetch(
+            "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.022505&lng=72.5713621&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+          );
+
+          const share = await data.json();
+
+          SetResData(share);
+        } else {
+          const data = await fetch(
+            `https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=${From_where.state.lat}&lng=${From_where.state.lan}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
+          );
+          const share = await data.json();
+
+          SetResData(share);
+        }
+      } catch {}
     }
     check();
-  }, []);
-
+  }, [From_where.state]);
+  if (resdata.data?.cards[0]?.card?.card?.title === "Location Unserviceable") {
+    return <Location_Unserviceable />;
+  }
   return (
     <div>
       <div className="uppar_body">
         <div className="set">
           <div className="left">
             <h1 color="text_High_Emphasis" className="RES_MIDDLE_NAME">
-              Order Food Online in Ahmedabad
+              Order Food Online in{" "}
+              {From_where.state === null
+                ? "Ahemedabad"
+                : From_where.state.city_name.slice(0, 15)}
             </h1>
             <div className="arrow">
               <svg
@@ -82,12 +99,28 @@ const Body = () => {
         </div>
       ) : resdata.length === 0 ? (
         <Shimmer_cont />
+      ) : resdata.data?.cards[2]?.card.card.gridElements?.infoWithStyle
+          .restaurants.length === 0 ? (
+        location.reload()
       ) : (
         <div className="container_main">
-          <Crousel />
+          {console.log(
+            resdata.data.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info
+          )}
+          <Crousel
+            data={
+              resdata.data.cards[0]?.card?.card?.gridElements?.infoWithStyle
+                ?.info
+            }
+          />
           <div className="crousel">
             <div className="upper">
-              <h1 className="cr_title">Top restaurant chains in Ahmedabad</h1>
+              <h1 className="cr_title">
+                Top restaurant chains in{" "}
+                {From_where.state === null
+                  ? "Ahemedabad"
+                  : From_where.state.long_name}
+              </h1>
               <div className="buttons">
                 <div
                   onClick={(e) => {
@@ -151,8 +184,8 @@ const Body = () => {
             <div className="perent_slider">
               <div className="slider">
                 {resdata.data?.cards[2]?.card.card.gridElements?.infoWithStyle.restaurants.map(
-                  (data) => (
-                    <Card res_data={data} />
+                  (data, index) => (
+                    <Card key={index} res_data={data} />
                   )
                 )}
               </div>
@@ -160,12 +193,15 @@ const Body = () => {
           </div>
           <div className="br"> </div>
           <h1 className="topres">
-            Restaurants with online food delivery in Ahmedabad
+            Restaurants with online food delivery in{" "}
+            {From_where.state === null
+              ? "Ahemedabad"
+              : From_where.state.city_name}
           </h1>
           <div className="give_padding">
             {resdata.data?.cards[5]?.card.card.gridElements?.infoWithStyle.restaurants.map(
-              (data) => (
-                <Card res_data={data} />
+              (data, index) => (
+                <Card key={index} res_data={data} />
               )
             )}
           </div>

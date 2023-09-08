@@ -128,7 +128,76 @@
 
 .logo {
     height: 100%;
+    display: flex;
 
+    justify-content: space-between;
+
+    flex-direction: row;
+
+
+
+}
+
+.search_city {
+    margin-top: 9px;
+    width: 431px;
+    display: flex;
+
+    display: flex;
+    padding-top: 12px;
+
+    justify-content: start;
+    flex-direction: column;
+    height: fit-content;
+    position: relative;
+
+}
+
+.namessssas {
+    cursor: pointer;
+    font-family: 'Kanit',
+        sans-serif;
+    border-bottom: 1px solid black;
+    padding-top: 14px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: -0.3px;
+    color: rgba(2, 6, 12, 0.75);
+    margin-top: 10px;
+}
+
+.serchsug {
+    display: none;
+    top: 48px;
+    z-index: 244;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    border-right: 1px solid #d4d5d9;
+    border-left: 1px solid #d4d5d9;
+    border-bottom: 1px solid #d4d5d9;
+    box-sizing: border-box;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    box-sizing: border-box;
+    background-color: white;
+
+}
+
+.cityinput {
+
+    padding: 12px;
+    border: 1px solid #d4d5d9;
+    width: 100%;
+
+}
+
+.cityinput:focus {
+    box-shadow: 0 1px 7px 1px #d4d5d9
 }
 
 .time_del {
@@ -559,21 +628,112 @@
     width: 100%;
 }
 
+.asdasasdas {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.asuhdwoo {
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Kanit', sans-serif;
+    font-size: 16px;
+    margin-top: 12px;
+    font-weight: 200;
+    line-height: 19px;
+    letter-spacing: -0.3px;
+    color: rgba(2, 6, 12, 0.6);
+    text-align: center;
+}
+
+.asudhdsa {
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Kanit', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 24px;
+    margin-top: 20px;
+    letter-spacing: -0.3px;
+    color: rgba(2, 6, 12, 0.92);
+    text-align: center;
+}
+
+.cities_ke_div {
+    padding: 16px;
+    box-sizing: border-box;
+    border: 1.5px solid rgba(2, 6, 12, 0.1);
+    border-radius: 12px;
+    width: 340px;
+    font-family: 'Kanit', sans-serif;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    cursor: pointer;
+    line-height: 19px;
+    letter-spacing: -0.3px;
+    font-size: 16px;
+    color: rgba(2, 6, 12, 0.75);
+
+}
+
+.ashuhschdj {
+    margin: 0px;
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Kanit', sans-serif;
+    font-size: 24px;
+    margin-left: 25px;
+    font-weight: 800;
+    line-height: 28px;
+    letter-spacing: -0.4px;
+    color: rgba(2, 6, 12, 0.92);
+}
+
+.popx {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 25px;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+.JODIHHDHS {
+    margin-top: 60px;
+    width: 384px;
+}
+
 .perent_div {
 
     justify-content: center;
     display: flex;
-    align-items: center;
+    align-items: start;
+    /* height: calc(100vh-60px); */
+    height: calc(100vh - 81px);
+}
+
+.perent_div_a {
+    margin-top: 100px;
+    padding-left: 600px;
+    padding-right: 600px;
+    justify-content: space-between;
+    display: flex;
+    align-items: start;
     /* height: calc(100vh-60px); */
     height: calc(100vh - 81px);
 }
 
 .child_cont {
-    height: 100%;
-    width: 800px;
-    margin-top: 55px;
-    max-width: 800px;
 
+    width: 800px;
+    margin-top: 25px;
+    max-width: 800px;
+    overflow: hidden;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -1103,6 +1263,7 @@ svg:not(:root) {
 }
 
 .asuif {
+    cursor: pointer;
     width: 20px;
 }
 

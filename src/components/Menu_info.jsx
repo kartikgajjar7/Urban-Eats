@@ -4,9 +4,11 @@ import Upperinfo from "./Upperinfo.js";
 import Switch_veg from "./Switch_veg.jsx";
 import Coupen from "./Coupen.jsx";
 import { useEffect } from "react";
+import Shimmer_cont from "./simmer_cont.jsx";
 import Coupen_card from "./Coupen_card.jsx";
 import { Link, json } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import Shimmer_FOR_DETAIL from "./Shimmer_FOR_DETAIL.JSX";
 import useResData from "../CustomHooks/res_menu/useResData.js";
 import useRestaurantId from "../CustomHooks/res_menu/userestaurantid.js";
 import Res_Acc from "./Res_Acc.jsx";
@@ -15,9 +17,9 @@ export const Menu_info = () => {
   const [switchveg, setswitchveg] = useState(false);
   const { resid } = useParams();
   const res_data = useRestaurantId(resid);
-  if (res_data === null) return;
+  if (res_data === null) return <Shimmer_FOR_DETAIL />;
   const offers =
-    res_data.data.cards[1].card.card.gridElements.infoWithStyle.offers.map(
+    res_data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.offers.map(
       (data) => data.info
     );
   console.log(offers);

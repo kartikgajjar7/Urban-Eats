@@ -358,3 +358,28 @@ const similarityPercentage = (
 
 return similarityPercentage >= 50;
 }
+
+## autpcompletion api
+
+https://www.swiggy.com/dapi/misc/place-autocomplete?input=ahe&types=
+
+
+## this is the past
+  { list.length !=0 :  list.map((data) => (
+              <Link
+                state={{
+                  lat: city_lan?.data[0]?.geometry?.location.lat,
+                  lan: city_lan?.data[0]?.geometry?.location.lat,
+                }}
+                to="/"
+              >
+                <h1
+                  onClick={() => {
+                    HandleCityClick(data?.place_id);
+                  }}
+                  className="namessssas"
+                >
+                  {data.description}
+                </h1>
+              </Link>
+            )) : null}

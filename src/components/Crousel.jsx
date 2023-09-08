@@ -1,4 +1,4 @@
-const Crousel = () => {
+const Crousel = ({ data }) => {
   return (
     <div className="crousel">
       <div className="upper">
@@ -67,7 +67,17 @@ const Crousel = () => {
       </div>
       <div className="perent_slider">
         <div className="sliderw">
-          <div className="img_off_cont">
+          {data?.map((items) => (
+            <div className="img_off_cont" key={items.imageId}>
+              <img
+                className="img_offer"
+                src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${items.imageId}`}
+                alt=""
+              />
+            </div>
+          ))}
+
+          {/* <div className="img_off_cont">
             <img
               className="img_offer"
               src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_850,h_504/rng/md/carousel/production/625d536975ea7b99ccb7ae8818e459c7"
@@ -115,7 +125,7 @@ const Crousel = () => {
               src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_850,h_504/rng/md/carousel/production/186a71018df06ce2bea1db55086d32e4"
               alt=""
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

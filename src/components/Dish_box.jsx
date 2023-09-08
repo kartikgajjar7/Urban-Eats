@@ -1,5 +1,5 @@
 const Dis_box = ({ item_info }) => {
-  const take_data = item_info?.card.info;
+  const take_data = item_info?.card?.info;
 
   return (
     <>

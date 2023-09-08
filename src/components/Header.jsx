@@ -1,14 +1,106 @@
+import { useState } from "react";
 import LOGO_URL from "../utils/constant";
 import { Link } from "react-router-dom";
-const Header = () => {
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+const Header = ({ userinput, setuserinput }) => {
+  const nevigate = useNavigate();
+  const [lat, setlat] = useState(23.022505);
+  const [lan, setlan] = useState(72.5713621);
+  const [list, setlist] = useState([]);
+  const [input, setinput] = useState("");
+  const [placeholder, setplace] = useState("Search Other Cites");
+  const HandleCityClick = async (place_id) => {
+    setlist([]);
+    const resbox = document.getElementsByClassName("serchsug")[0];
+    resbox.style.display = "none";
+    const JSON_CITY = await fetch(
+      `https://corsproxy.io/?https://www.swiggy.com/dapi/misc/address-recommend?place_id=${place_id}`
+    );
+    setinput("");
+    const city_lan = await JSON_CITY.json();
+    const updatedLat = city_lan?.data[0]?.geometry?.location.lat;
+    const updatedLan = city_lan?.data[0]?.geometry?.location.lng;
+    setlat(city_lan?.data[0]?.geometry?.location.lat);
+    setlan(city_lan?.data[0]?.geometry?.location.lng);
+
+    setplace(city_lan?.data[0].address_components[0].short_name);
+    console.log("now nevigatiing", "lat: ", lat, "lan: ", lan);
+    nevigate("/", {
+      state: {
+        lat: updatedLat,
+        lan: updatedLan,
+        city_name: city_lan?.data[0].address_components[0].short_name,
+        long_name: city_lan?.data[0].address_components[0].long_name,
+      },
+    });
+  };
+
+  const handle_click_on_home_link = () => {
+    nevigate("/", {
+      state: {
+        lat: lat,
+        lan: lan,
+        city_name: city_lan?.data[0].address_components[0].short_name,
+      },
+    });
+  };
+  const handlecityclick = () => {
+    toast("🚀 WE ARE WORKING ON THIS ! TAKE IT EASY");
+  };
+  const handleinput = async (e) => {
+    setinput(e.target.value);
+    const resbox = document.getElementsByClassName("serchsug")[0];
+    resbox.style.display = "block";
+    const value = e.target.value;
+    if (value === "") {
+      setlist([]);
+      const resbox = document.getElementsByClassName("serchsug")[0];
+
+      resbox.style.display = "none";
+      return;
+    }
+    const json_suggetion = await fetch(
+      `https://corsproxy.io/?https://www.swiggy.com/dapi/misc/place-autocomplete?input=${value}&types=`
+    );
+    const suggetion = await json_suggetion.json();
+
+    setlist(suggetion?.data);
+  };
   return (
     <div className="header">
       <div className="logo">
         <img className="image" src={LOGO_URL} alt="" />
+        <div className="search_city">
+          <input
+            value={input}
+            onChange={handleinput}
+            placeholder="Search Other Cites"
+            className="cityinput"
+            type="text"
+          />
+          <div className="serchsug">
+            {list.length !== 0
+              ? // Render the list if it's not empty
+                list.map((data) => (
+                  <h1
+                    onClick={() => {
+                      HandleCityClick(data?.place_id);
+                    }}
+                    className="namessssas"
+                  >
+                    {data.description}
+                  </h1>
+                ))
+              : // Render null or an alternative content if the list is empty
+                null}
+          </div>
+        </div>
       </div>
       <div className="navitems">
         <ul className="ulas">
-          <Link className="asddd" to="/restaurant/123">
+          <Link className="asddd" to="/">
             <li className="itemt">
               <div className="navdiv">
                 <span className="_3yZyp">
@@ -26,7 +118,17 @@ const Header = () => {
               </div>
             </li>
           </Link>
-          <Link className="asddd" to="/">
+          <Link
+            to={{
+              pathname: "/",
+              state: {
+                lat: lat,
+                lan: lan,
+                city_name: placeholder,
+              },
+            }}
+            className="asddd"
+          >
             <li className="itemt">
               <div className="navdiv">
                 <svg
@@ -58,8 +160,7 @@ const Header = () => {
               </div>
             </li>
           </Link>
-
-          <Link className="asddd" to="/restaurant/123">
+          <Link className="asddd" to="/">
             <li className="itemt">
               <div className="navdiv">
                 <span className="_3yZyp">
@@ -80,8 +181,8 @@ const Header = () => {
           </Link>
         </ul>
       </div>
+      <ToastContainer />
     </div>
   );
 };
-
 export default Header;
