@@ -19,6 +19,7 @@ getComputedStyle(slider).getPropertyValue(
 )
 );
 if (
+
 (e.target.matches(".left_slide_btn") ||
 e.target.closest(".left_slide_btn")) &&
 count > 0
@@ -366,6 +367,7 @@ https://www.swiggy.com/dapi/misc/place-autocomplete?input=ahe&types=
 ## this is the past
 
 { list.length !=0 : list.map((data) => (
+
 <Link
 state={{
                   lat: city_lan?.data[0]?.geometry?.location.lat,

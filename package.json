@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "this is the react app",
   "scripts": {
-    "p": "parcel index.html",
+    "pc": "parcel index.html",
     "test": "jest",
     "build": "npx parcel build index.html",
     "start": "rm -rf dist-dev .parcel-cache && parcel index.html"
