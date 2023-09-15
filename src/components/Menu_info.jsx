@@ -15,6 +15,7 @@ export const Menu_info = () => {
   const [veg, setveg] = useState(false);
   const [switchveg, setswitchveg] = useState(false);
   const { resid } = useParams();
+  const [showmenu, setshowmenu] = useState(false);
   const res_data = useRestaurantId(resid);
   if (res_data === null) return <Shimmer_FOR_DETAIL />;
   const offers =
@@ -26,6 +27,8 @@ export const Menu_info = () => {
     res_data.data.cards[2].groupedCard?.cardGroupMap?.REGULAR.cards.filter(
       (data) => data.card.card?.["@type"].includes("ItemCategory")
     );
+  console.log(cat_data);
+
   const Search_Data = cat_data.map((data) =>
     data.card.card.itemCards?.map((data) => data.card.info)
   );
@@ -39,6 +42,29 @@ export const Menu_info = () => {
   const obj_upperinfo = useResData(res_data);
   return (
     <div className="perent_div">
+      {showmenu ? null : (
+        <button onClick={() => setshowmenu(true)} className="showmenubtn">
+          <span
+            class="MenuFabButton_btnIcon__2AJv2 icon-menu"
+            aria-hidden="true"
+          >
+            BROWSE MENU
+          </span>
+        </button>
+      )}
+      {showmenu ? (
+        <div onClick={() => setshowmenu(false)} className="peretnaddon2">
+          <div onClick={(e) => e.stopPropagation()} className="showmenudiv">
+            {cat_data?.map((mapover) => (
+              <div className="eachmenui">
+                <p className="dsad">{mapover.card?.card?.title}</p>
+
+                <p className="dsad">{mapover?.card?.card?.itemCards.length}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      ) : null}
       <div className="child_cont">
         <div className="top_bar_small">
           <div className="res_name_rh">

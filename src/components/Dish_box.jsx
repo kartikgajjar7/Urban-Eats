@@ -7,8 +7,7 @@ const Dis_box = ({ item_info }) => {
   const [addonsitem, setaddonsitem] = useState([]);
   const take_data = item_info?.card?.info;
   const dispatch = useDispatch();
-  console.log("hi");
-  console.log("hi");
+
   const price_of_Food = take_data?.price
     ? take_data?.price / 100
     : take_data.defaultPrice / 100;
@@ -33,8 +32,6 @@ const Dis_box = ({ item_info }) => {
       (data) => data.name === addonname
     );
     if (addonsitem.some((element) => element.name === addonname)) {
-      console.log("removing ", addonname);
-      console.log(addon_object_to_add);
       if (addon_object_to_add[0].price !== undefined) {
         setsubtotal((total) => total - addon_object_to_add[0].price / 100);
       }
@@ -45,15 +42,13 @@ const Dis_box = ({ item_info }) => {
     }
 
     if (addon_object_to_add[0].price !== undefined) {
-      console.log("addition");
       setsubtotal((total) => total + addon_object_to_add[0].price / 100);
     }
-    console.log("adding ", addonname);
+
     setaddonsitem((items) => [...items, addon_object_to_add[0]]);
   };
   useEffect(() => {
     // This code block will run every time addonsitem changes
-    console.log("Updated addonsitem:", addonsitem);
   }, [addonsitem]);
   const getaddon = (take_data) => {
     if (take_data && take_data.addons !== undefined) {

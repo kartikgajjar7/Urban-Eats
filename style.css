@@ -1232,6 +1232,7 @@ input[type="checkbox"].toggle:checked + label::after {
     font-family: 'Kanit', sans-serif;
 }
 
+
 .asdwowo {
     width: 18px;
     margin-right: 7px;
@@ -1249,6 +1250,54 @@ input[type="checkbox"].toggle:checked + label::after {
     align-items: center;
     justify-content: center;
     background-color: rgba(0, 0, 0, .3);
+}
+
+.peretnaddon2 {
+    height: 100vh;
+    width: 100vw;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 300000;
+    position: fixed;
+    top: 50%;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, .3);
+}
+
+.MenuFabButton_btnIcon__2AJv2 {
+    margin-right: 6px;
+    font-size: .86rem;
+}
+
+.showmenubtn {
+    width: 150px;
+    height: 40px;
+    border-radius: 30px;
+    background: #5d8ed5;
+    color: white;
+    text-align: center;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .3), 0 2px 1px 0 rgba(93, 141, 213, .2);
+    padding: 14px;
+    font-weight: 600;
+    font-size: .93rem;
+    bottom: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    will-change: transform;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: scaleX(1);
+    transition: transform .25s ease-in-out;
+    z-index: 300000;
+    position: fixed;
+}
+
+.diajkfjj {
+    width: 30px;
 }
 
 .asfas {
@@ -1330,6 +1379,71 @@ input[type="checkbox"].toggle:checked + label::after {
     display: flex;
     position: relative;
 }
+
+.eachmenui {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.eachmenui:last-child {
+    margin-bottom: 0;
+}
+
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #a8bbbf;
+}
+
+.dsad {
+    text-transform: capitalize;
+    overflow: hidden;
+    font-weight: 100;
+    font-family: 'Kanit', sans-serif;
+    white-space: nowrap;
+}
+
+.showmenudiv {
+    border-radius: 12px;
+    overflow-y: scroll;
+    display: flex;
+    margin-bottom: 80px;
+    padding: 26px 24px 26px 40px;
+    align-items: start;
+    justify-content: start;
+    background-color: white;
+    flex-direction: column;
+    /* position: fixed; */
+    /* top: 50%; */
+    background-color: #fff;
+    box-shadow: 0 2px 20px 0 rgba(40, 44, 63, .15);
+    /* left: 50%;
+    transform: translate(-50%, -50%); */
+    z-index: 3000001;
+    ;
+    width:
+        500px;
+    height: 324px;
+}
+
+
 
 .addondiv {
     display: flex;
