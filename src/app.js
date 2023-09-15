@@ -10,44 +10,40 @@ import Menu_info from "./components/Menu_info";
 import Search_res from "./components/Search_res";
 import React from "react";
 import { ToastContainer, toast } from "react-toastify";
-
+import { Provider } from "react-redux";
 import "react-toastify/dist/ReactToastify.css";
 import Sign_in_page from "./components/Sign_in_page";
 import ScrollToTop from "./components/ScrollToTop";
 import { Outlet } from "react-router-dom";
+import appstore from "./components/Reduxstore/Stores/appstore";
 const root = ReactDOM.createRoot(document.getElementsByClassName("root")[0]);
 
 const App = () => {
   const [userinput, setuserinput] = useState("");
   const [lat, setlat] = useState(23.022505);
   const [lan, setlan] = useState(72.5713621);
-  console.log(setuserinput);
+
   return (
-    <div className="app">
-      <ScrollToTop />
-      <Header
-        lat={lat}
-        lan={lan}
-        setlat={setlat}
-        setlan={setlan}
-        userinput={userinput}
-        setuserinput={setuserinput}
-      />
-      <Outlet />
-    </div>
+    <Provider store={appstore}>
+      <div className="app">
+        <ScrollToTop />
+        <Header
+          lat={lat}
+          lan={lan}
+          setlat={setlat}
+          setlan={setlan}
+          userinput={userinput}
+          setuserinput={setuserinput}
+        />
+        <Outlet />
+      </div>
+    </Provider>
   );
 };
 const Root = () => {
   function detectMob() {
-    console.log(
-      "inner width: ",
-      window.innerWidth,
-      "||",
-      "innerheight",
-      window.innerHeight
-    );
     const check = window.innerWidth <= 1000;
-    console.log("cheking phone");
+
     return check;
   }
 
@@ -64,7 +60,7 @@ const Root = () => {
       <Routes>
         <Route path="" element={<App />}>
           <Route index element={<Body />} />
-          <Route path="cart" element={<Restaurant />} />
+          <Route path="cart" element={<Cart />} />
           <Route
             path="signin"
             element={

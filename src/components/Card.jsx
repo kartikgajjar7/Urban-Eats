@@ -15,7 +15,11 @@ const Card = ({ res_data }) => {
             alt="image"
           />
           <div className="shadow">
-            <p className="offer">{`${res_data.info?.aggregatedDiscountInfoV3?.header} ${res_data.info?.aggregatedDiscountInfoV3?.subHeader}`}</p>
+            {res_data.info?.aggregatedDiscountInfoV3?.header === undefined ? (
+              ""
+            ) : (
+              <p className="offer">{`${res_data.info?.aggregatedDiscountInfoV3?.header} ${res_data.info?.aggregatedDiscountInfoV3?.subHeader}`}</p>
+            )}
           </div>
         </div>
 

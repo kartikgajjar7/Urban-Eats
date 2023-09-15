@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import stringSimilarity from "string-similarity";
 import { Link, useLocation, useParams } from "react-router-dom";
+
 import Dis_box from "./Dish_box";
-import Search_cards from "./search_cards";
+import Search_cards from "./Search_cards.jsx";
 
 export const Search_res = () => {
   const [inputx, setinputx] = useState("");
@@ -15,7 +16,6 @@ export const Search_res = () => {
     alert("WE ARE WORKING ON UI , THODA DHIRAJ RAKHIYE");
   };
   const handle_e = (e) => {
-    // console.log(e.target.value);
     const inputValue = e.target.value;
     setinputx(e.target.value);
 

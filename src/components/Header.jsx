@@ -1,11 +1,17 @@
 import { useState } from "react";
 import LOGO_URL from "../utils/constant";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import appstore from "../components/Reduxstore/Stores/appstore";
 import "react-toastify/dist/ReactToastify.css";
+import { useDispatch, useSelector } from "react-redux";
+import { changeLocation } from "./Reduxstore/slices/Location";
 const Header = ({ userinput, setuserinput }) => {
   const nevigate = useNavigate();
+  const Selector = useSelector((state) => state.cart.items);
+  const Location_data = useSelector((state) => state.location.location);
+  const dispatch = useDispatch();
   const [lat, setlat] = useState(23.022505);
   const [lan, setlan] = useState(72.5713621);
   const [list, setlist] = useState([]);
@@ -22,19 +28,19 @@ const Header = ({ userinput, setuserinput }) => {
     const city_lan = await JSON_CITY.json();
     const updatedLat = city_lan?.data[0]?.geometry?.location.lat;
     const updatedLan = city_lan?.data[0]?.geometry?.location.lng;
+    dispatch(
+      changeLocation({
+        lat: city_lan?.data[0]?.geometry?.location.lat,
+        lan: city_lan?.data[0]?.geometry?.location.lng,
+        name: city_lan?.data[0].address_components[0].short_name,
+      })
+    );
     setlat(city_lan?.data[0]?.geometry?.location.lat);
     setlan(city_lan?.data[0]?.geometry?.location.lng);
 
     setplace(city_lan?.data[0].address_components[0].short_name);
     console.log("now nevigatiing", "lat: ", lat, "lan: ", lan);
-    nevigate("/", {
-      state: {
-        lat: updatedLat,
-        lan: updatedLan,
-        city_name: city_lan?.data[0].address_components[0].short_name,
-        long_name: city_lan?.data[0].address_components[0].long_name,
-      },
-    });
+    nevigate("/");
   };
 
   const handle_click_on_home_link = () => {
@@ -160,7 +166,7 @@ const Header = ({ userinput, setuserinput }) => {
               </div>
             </li>
           </Link>
-          <Link className="asddd" to="/">
+          <Link className="asddd" to="/cart">
             <li className="itemt">
               <div className="navdiv">
                 <span className="_3yZyp">

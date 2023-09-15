@@ -363,23 +363,34 @@ return similarityPercentage >= 50;
 
 https://www.swiggy.com/dapi/misc/place-autocomplete?input=ahe&types=
 
-
 ## this is the past
-  { list.length !=0 :  list.map((data) => (
-              <Link
-                state={{
+
+{ list.length !=0 : list.map((data) => (
+<Link
+state={{
                   lat: city_lan?.data[0]?.geometry?.location.lat,
                   lan: city_lan?.data[0]?.geometry?.location.lat,
                 }}
-                to="/"
-              >
-                <h1
-                  onClick={() => {
-                    HandleCityClick(data?.place_id);
-                  }}
-                  className="namessssas"
-                >
-                  {data.description}
-                </h1>
-              </Link>
-            )) : null}
+to="/" >
+<h1
+onClick={() => {
+HandleCityClick(data?.place_id);
+}}
+className="namessssas" >
+{data.description}
+</h1>
+</Link>
+)) : nu
+
+## relode
+
+{resdata.data?.cards[2]?.card.card.gridElements?.infoWithStyle
+.restaurants
+? resdata.data.cards[2].card.card.gridElements.infoWithStyle.restaurants.map(
+(data, index) => <Card key={index} res_data={data} />
+)
+: (() => {
+console.log("Reloading...");
+window.location.reload();
+return null; // You can return null or some loading indicator here
+})()}

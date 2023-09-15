@@ -7,38 +7,51 @@ import Shimmer_cont from "./simmer_cont";
 import { useState } from "react";
 import useOnlineStatus from "../CustomHooks/res_menu/useOnlineStatus";
 import { useLocation } from "react-router-dom";
+import { useContext } from "react";
+import userContext from "../utils/UserContext";
 import { Location_Unserviceable } from "./Location_Unserviceable";
+import { useSelector } from "react-redux";
 const Body = () => {
   const status = useOnlineStatus();
   const From_where = useLocation();
-
+  const Contexdata = useContext(userContext);
+  const Location_data = useSelector((state) => state.location.location);
+  console.log(Location_data, "location data");
   const [userinput, setuserinput] = useState("");
+  const [lat, setlet] = useState(Location_data.lat);
+  const [lan, setlen] = useState(Location_data.lan);
   const [resdata, SetResData] = useState([]);
+
   useEffect(() => {
     console.log("use effect called");
     SetResData([]);
-    async function check() {
+    async function fetchData() {
       try {
-        if (From_where.state === undefined || From_where.state === null) {
-          const data = await fetch(
-            "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.022505&lng=72.5713621&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-          );
+        // if (From_where.state === undefined || From_where.state === null) {
+        //   const data = await fetch(
+        //     "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.022505&lng=72.5713621&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+        //   );
 
-          const share = await data.json();
+        //   const share = await data.json();
+        //   console.log(share);
+        //   SetResData(share);
+        // } else {
+        console.log(Location_data.lat, " ", Location_data.lan, "fetching");
+        const data = await fetch(
+          `https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=${Location_data.lat}&lng=${Location_data.lan}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
+        );
+        const share = await data.json();
+        console.log(share);
 
-          SetResData(share);
-        } else {
-          const data = await fetch(
-            `https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=${From_where.state.lat}&lng=${From_where.state.lan}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
-          );
-          const share = await data.json();
-
-          SetResData(share);
-        }
-      } catch {}
+        SetResData(share);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        // Handle the error, e.g., show an error message to the user
+      }
     }
-    check();
-  }, [From_where.state]);
+    fetchData();
+  }, [Location_data]);
+
   if (resdata.data?.cards[0]?.card?.card?.title === "Location Unserviceable") {
     return <Location_Unserviceable />;
   }
@@ -48,10 +61,7 @@ const Body = () => {
         <div className="set">
           <div className="left">
             <h1 color="text_High_Emphasis" className="RES_MIDDLE_NAME">
-              Order Food Online in{" "}
-              {From_where.state === null
-                ? "Ahemedabad"
-                : From_where.state.city_name.slice(0, 15)}
+              Order Food Online in {Location_data.name.slice(0, 15)}
             </h1>
             <div className="arrow">
               <svg
@@ -104,9 +114,6 @@ const Body = () => {
         location.reload()
       ) : (
         <div className="container_main">
-          {console.log(
-            resdata.data.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info
-          )}
           <Crousel
             data={
               resdata.data.cards[0]?.card?.card?.gridElements?.infoWithStyle
@@ -116,10 +123,7 @@ const Body = () => {
           <div className="crousel">
             <div className="upper">
               <h1 className="cr_title">
-                Top restaurant chains in{" "}
-                {From_where.state === null
-                  ? "Ahemedabad"
-                  : From_where.state.long_name}
+                Top restaurant chains in {`${Location_data.name}`}
               </h1>
               <div className="buttons">
                 <div
@@ -183,11 +187,16 @@ const Body = () => {
             </div>
             <div className="perent_slider">
               <div className="slider">
-                {resdata.data?.cards[2]?.card.card.gridElements?.infoWithStyle.restaurants.map(
-                  (data, index) => (
-                    <Card key={index} res_data={data} />
-                  )
-                )}
+                {resdata.data?.cards[2]?.card.card.gridElements?.infoWithStyle
+                  .restaurants
+                  ? resdata.data.cards[2].card.card.gridElements.infoWithStyle.restaurants.map(
+                      (data, index) => <Card key={index} res_data={data} />
+                    )
+                  : (() => {
+                      console.log("Reloading...");
+                      window.location.reload();
+                      return null; // You can return null or some loading indicator here
+                    })()}
               </div>
             </div>
           </div>

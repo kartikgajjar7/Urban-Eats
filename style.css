@@ -23,6 +23,47 @@
     background-color: transparent;
 }
 
+.btnadds {
+
+
+    width: 96px !important;
+    height: 36px !important;
+    z-index: 19999;
+    color: #60b246;
+    box-shadow: 0 3px 8px #e9e9eb;
+    background-color: white;
+    bottom: 10px;
+    left: 11px;
+    border-radius: 4px;
+    font-size: 16px;
+    margin: auto;
+    position: absolute;
+}
+
+.btnaddsa {
+
+
+    color: #7e808c;
+    font-size: 10px;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    line-height: 1;
+    font-weight: 500;
+
+    pointer-events: none;
+    font-family: 'Kanit', sans-serif;
+    z-index: 19999;
+
+    bottom: -3px;
+    left: 1px;
+    border-radius: 4px;
+
+    margin: auto;
+    position: absolute;
+}
+
+
 .svg {
     width: 48px;
     height: 48px;
@@ -46,7 +87,7 @@
     box-shadow: rgba(27, 30, 36, 0.06) 0px 8px 16px, rgba(27, 30, 36, 0.04) 0px 0px 8px;
     top: 0;
     background-color: white;
-    z-index: 234;
+    z-index: 200000;
     position: sticky;
     justify-content: space-between;
 
@@ -224,22 +265,26 @@
     border-radius: 100%;
     padding: 8px 8px 4px;
     background: rgb(226, 226, 231);
+    cursor: pointer;
 }
 
 .right_slide_btn {
     border-radius: 100%;
+    cursor: pointer;
     padding: 8px 8px 4px;
     background: rgb(226, 226, 231);
 }
 
 .left_slide_btnw {
     border-radius: 100%;
+    cursor: pointer;
     padding: 8px 8px 4px;
     background: rgb(226, 226, 231);
 }
 
 .right_slide_btnw {
     border-radius: 100%;
+    cursor: pointer;
     padding: 8px 8px 4px;
     background: rgb(226, 226, 231);
 }
@@ -943,6 +988,7 @@
     height: 68.2188px;
     border: 1px solid yellow;
     display: flex;
+    overflow: hidden;
     border: 1px solid #e9e9eb;
     box-sizing: border-box;
     box-shadow: 0 1px 2px rgba(0, 0, 0, .04);
@@ -1046,6 +1092,16 @@ input[type="checkbox"].toggle + label::after {
 
 }
 
+.affserttr {
+    color: #7e808c;
+    font-size: 14px;
+    display: inline-block;
+}
+
+.asfff {
+    margin-right: 12px;
+}
+
 input[type="checkbox"].toggle:checked + label::after {
     content: "\25CF";
     transform: translateX(100%);
@@ -1135,6 +1191,7 @@ input[type="checkbox"].toggle:checked + label::after {
 .dividessss {
     border-bottom: 0.5px solid #d3d3d3;
     height: 0.5px;
+
     width: 100%;
     margin: 20px 0;
 }
@@ -1148,9 +1205,156 @@ input[type="checkbox"].toggle:checked + label::after {
 
 }
 
+.upperad {
+    width: calc(100% - 30px);
+    border-bottom: dashed 2px grey;
+    height: 100px;
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-left: 30px;
+    ;
+}
+
+.sfs {
+    width: 100%;
+    display: flex;
+    margin-top: 30px;
+    align-items: center;
+    justify-content: start;
+    flex-direction: row;
+}
+
+.adassaa {
+    font-size: 14px;
+    font-family: 'Kanit', sans-serif;
+}
+
+.asdwowo {
+    width: 18px;
+    margin-right: 7px;
+}
+
+.peretnaddon {
+    height: 100vh;
+    width: 100vw;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 300000;
+    position: fixed;
+    top: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, .3);
+}
+
+.asfas {
+    height: 30px;
+    margin-right: 12px;
+    cursor: pointer;
+    margin-top: -66px;
+
+}
+
+.nameadd {
+    height: 100%;
+
+}
+
+.addonitems {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: start;
+    display: flex;
+    width: 100%;
+    padding-left: 47px;
+    overflow: scroll;
+}
+
+.addonitems::-webkit-scrollbar {
+    display: none;
+}
+
+.afdssd {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+}
+
+.asdijijjjs {
+    font-family: 'Kanit', sans-serif;
+    padding: 11px px 16px;
+    background-color: #60b246;
+    color: #fff;
+    position: relative;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.TEXTNOADDON {
+    margin-left: 142px;
+    margin-top: 168px;
+
+    font-family: 'Kanit', sans-serif;
+}
+
+.noaddon {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+.checkout {
+    color: #fff;
+    cursor: pointer;
+    background-color: #60b246;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin-top: 10px;
+    margin-left: -1px;
+    padding: 11px 16px;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    position: relative;
+}
+
+.addondiv {
+    display: flex;
+
+    align-items: center;
+    justify-content: start;
+    background-color: white;
+    flex-direction: column;
+    /* position: fixed; */
+    /* top: 50%; */
+    background-color: #fff;
+    box-shadow: 0 2px 20px 0 rgba(40, 44, 63, .15);
+    /* left: 50%;
+    transform: translate(-50%, -50%); */
+    z-index: 29999;
+    ;
+    width:
+        600px;
+    height: 715px;
+}
+
 .ppeerr {
     display: flex;
     width: 800px;
+    /* position: relative; */
     flex-direction: column;
 }
 
@@ -1159,12 +1363,14 @@ input[type="checkbox"].toggle:checked + label::after {
     width: 100%;
     display: flex;
     flex-direction: column;
-    height: 112.672px;
+    height: 140.672px;
 
 }
 
 .ehs {
     width: 118px;
+    position: relative;
+    z-index: 1;
     height: 96px;
     -o-object-fit: cover;
     object-fit: cover;
@@ -1176,6 +1382,7 @@ input[type="checkbox"].toggle:checked + label::after {
     margin-left: 16px;
     min-width: 118px;
     height: 120px;
+    text-align: center;
     font-size: 0;
 
 }
@@ -1194,6 +1401,8 @@ input[type="checkbox"].toggle:checked + label::after {
 }
 
 .text_item_d {
+    overflow: hidden;
+    height: 100%;
     margin-top: 14px;
     line-height: 1.3;
     color: rgba(40, 44, 63, .45);
@@ -1264,6 +1473,7 @@ svg:not(:root) {
 
 .asuif {
     cursor: pointer;
+
     width: 20px;
 }
 
@@ -1860,14 +2070,7 @@ button {
     border-radius: 90px 90px 0px 0px;
 }
 
-/* 2.3. END Lamp */
-/***********************************
-			/* 2. END CONTENT */
-/***********************************/
 
-/***********************************
-			/* 3. RESPONSIVE */
-/***********************************/
 .error {
     overflow: hidden;
     max-height: 100vh;
@@ -1985,6 +2188,125 @@ button {
         margin-top: 20px;
     }
 }
+
+._3MtuI {
+    padding: 7px 0 7px 50px;
+    width: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    -ms-flex-align: center;
+    align-items: center;
+    cursor: pointer;
+    height: 40px;
+}
+
+
+input[type=checkbox] {
+    position: relative;
+    border: 1px solid #a9abb2;
+    border-radius: 2px;
+    background: none;
+    cursor: pointer;
+    line-height: 0;
+    margin: 0 .6em 0 0;
+    outline: 0;
+    padding: 0 !important;
+    vertical-align: text-top;
+    height: 20px;
+    width: 20px;
+
+    opacity: .5;
+}
+
+.asdassdd {
+    margin-right: 9px;
+    font-size: 17px;
+    font-family: 'Kanit', sans-serif;
+
+}
+
+input[type=checkbox]:hover {
+    opacity: 1;
+}
+
+input[type=checkbox]:checked {
+    background-color: #60b246;
+    ;
+    opacity: 1;
+}
+
+input[type=checkbox]:before {
+    content: '';
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    width: 4px;
+    height: 10px;
+    border: solid #FFF;
+    border-width: 0 2px 2px 0;
+    margin: -1px -1px 0 -1px;
+    transform: rotate(45deg) translate(-50%, -50%);
+    z-index: 2;
+}
+
+
+
+.sfasasd {
+    font-family: 'Kanit', sans-serif;
+    margin-top: 6px;
+}
+
+.aiunf {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 490px;
+}
+
+.middleadd {
+
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: start;
+    width: 100%;
+
+    height: 71%;
+    display: flex;
+}
+
+.asdssasd {
+    font-size: 14px;
+    color: #686b78;
+    margin-left: 4px;
+    font-weight: 300;
+}
+
+.combo {
+    color: #282c3f;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 20px 0 10px 50px;
+    position: relative;
+    font-family: 'Kanit', sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @-webkit-keyframes shimmer {
     0% {

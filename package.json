@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "this is the react app",
   "scripts": {
+    "p": "parcel index.html",
     "test": "jest",
     "build": "npx parcel build index.html",
     "start": "rm -rf dist-dev .parcel-cache && parcel index.html"
@@ -26,9 +27,11 @@
     "@emotion/styled": "^11.11.0",
     "@fontsource/roboto": "^5.0.8",
     "@mui/material": "^5.14.4",
+    "@reduxjs/toolkit": "^1.9.5",
     "fast-levenshtein": "^3.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^8.1.2",
     "react-router-dom": "^6.15.0",
     "react-toastify": "^9.1.3",
     "string-comparison": "^1.2.0",

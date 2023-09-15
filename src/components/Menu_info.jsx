@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Drop_cont from "./Drop_cont.jsx";
 import Upperinfo from "./Upperinfo.js";
-import Switch_veg from "./Switch_veg.jsx";
 import Coupen from "./Coupen.jsx";
 import { useEffect } from "react";
 import Shimmer_cont from "./simmer_cont.jsx";
@@ -22,7 +21,7 @@ export const Menu_info = () => {
     res_data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.offers.map(
       (data) => data.info
     );
-  console.log(offers);
+
   const cat_data =
     res_data.data.cards[2].groupedCard?.cardGroupMap?.REGULAR.cards.filter(
       (data) => data.card.card?.["@type"].includes("ItemCategory")
@@ -32,7 +31,6 @@ export const Menu_info = () => {
   );
 
   const handlevagswitch = () => {
-    console.log("switch was", switchveg);
     setswitchveg(!switchveg);
   };
 
@@ -97,18 +95,29 @@ export const Menu_info = () => {
             />
           ))}
         </div>
-
-        <div className="veg">
-          <p className="vegonly">Veg Only</p>
-          <input
-            value={switchveg}
-            onChange={handlevagswitch}
-            type="checkbox"
-            id="check"
-            className="toggle"
-          />
-          <label htmlFor="check"></label>
-        </div>
+        {console.log(res_data, " akbsigu")}
+        {res_data.data.cards[0].card.card.info.veg ? (
+          <div className="sfs">
+            <img
+              className="asdwowo"
+              src="https://images.vexels.com/media/users/3/207162/isolated/preview/9894de52e0b497e8df290cef44d2aded-health-green-leaf-icon.png"
+              alt="veg leaf"
+            />
+            <p className="adassaa">PURE VEG</p>
+          </div>
+        ) : (
+          <div className="veg">
+            <p className="vegonly">Veg Only</p>
+            <input
+              value={switchveg}
+              onChange={handlevagswitch}
+              type="checkbox"
+              id="check"
+              className="toggle"
+            />
+            <label htmlFor="check"></label>
+          </div>
+        )}
         <div className="asmod"></div>
         {cat_data.map((cat_data_app, index) => (
           <Res_Acc
