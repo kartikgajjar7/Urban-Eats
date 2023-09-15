@@ -7,7 +7,7 @@ const Dis_box = ({ item_info }) => {
   const [addonsitem, setaddonsitem] = useState([]);
   const take_data = item_info?.card?.info;
   const dispatch = useDispatch();
-
+  console.log("hi");
   const price_of_Food = take_data?.price
     ? take_data?.price / 100
     : take_data.defaultPrice / 100;
