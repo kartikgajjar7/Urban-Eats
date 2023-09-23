@@ -1218,6 +1218,10 @@ input[type="checkbox"].toggle:checked + label::after {
     ;
 }
 
+.sufhhd {
+    margin-left: 30px;
+}
+
 .sfs {
     width: 100%;
     display: flex;
@@ -1225,6 +1229,11 @@ input[type="checkbox"].toggle:checked + label::after {
     align-items: center;
     justify-content: start;
     flex-direction: row;
+}
+
+.wrapeitup {
+    border-bottom: 1px solid grey;
+    margin-top: 20px;
 }
 
 .adassaa {
@@ -2433,4 +2442,236 @@ input[type=checkbox]:before {
     .app {
         overflow: hidden;
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 600px) {
+    .child_cont {
+        padding-right: 13px;
+        padding-left: 13px;
+        margin-top: -2px;
+    }
+
+    .res_name_rh {
+        font-size: 14px;
+    }
+
+    .showmenubtn {
+        bottom: 19px;
+    }
+
+    .main_drop_cont:last-child {
+        display: none;
+    }
+
+
+    .showmenudiv {
+        margin-bottom: 0px;
+        border-radius: 0px;
+    }
+
+    .upperad {
+        border-bottom: 2px dashed gray;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 100px;
+        width: 100%;
+
+        margin-top: 0px;
+        margin-left: 0px;
+        display: flex;
+    }
+
+    .dis_box_cont {
+        height: fit-content;
+        align-items: center;
+    }
+
+    .text_item_d {
+        overflow: inherit;
+    }
+
+    .disrh {
+        height: fit-content;
+    }
+
+    .aiunf {
+        white-space: wrap;
+        font-size: 16px;
+    }
+
+    .asfas {
+        margin-right: 0px;
+        margin-top: -44px;
+    }
+
+    .combo {
+        padding-left: 0px;
+    }
+
+    .checkout {
+        margin-top: 29px;
+    }
+
+    .addonitems {
+        margin-left: 0px;
+        padding-left: 0px;
+    }
+
+    .nameadd {
+        width: 100%;
+        margin-top: 20px;
+        overflow: hidden;
+    }
+
+    .addondiv {
+        width: 100%;
+        padding-right: 13px;
+        padding-left: 13px;
+    }
+
+    .search_rh {
+        width: 16%;
+    }
+
+    .top_bar_small {
+        height: fit-content;
+        margin-top: 23px;
+    }
+
+    .upper_info {
+        height: fit-content;
+    }
+
+    .upperinfo_up {
+        margin-top: 0px;
+    }
+
+    .coupen_cont {
+        margin-top: 1rem
+    }
+
+    .cityinput {
+        display: none;
+    }
+
+    .header {
+        padding: 0px;
+    }
+
+
+
+    .search_cont {
+        padding-right: 13px;
+        padding-left: 13px;
+        width: 100%;
+    }
+
+    .ppeerr {
+        width: 100%;
+    }
+
+    .buttons {
+        margin-right: 0px;
+        display: none;
+    }
+
+    .image-res {
+        width: 7rem;
+        height: 7rem;
+    }
+
+    .wrapper {
+        height: 7.3rem;
+
+    }
+
+    .info_card {
+        margin-left: -12px;
+        margin-top: 11px;
+    }
+
+    .container-card {
+        justify-content: flex-start;
+        flex-direction: row;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .cr_title {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        font-weight: 700;
+    }
+
+    .Search_item_res {
+        font-size: 1rem;
+    }
+
+    .perent_div {
+        height: fit-content;
+    }
+
+    .img_off_cont {
+        width: fit-content;
+    }
+
+    .img_offer {
+        width: 300px;
+        height: 200px;
+    }
+
+    .container_main {
+        padding-right: 13px;
+        padding-left: 13px;
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+
+    .uppar_body {
+        display: none;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

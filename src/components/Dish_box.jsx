@@ -3,10 +3,44 @@ import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { additem } from "./Reduxstore/slices/Cartslice";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { removeitem } from "./Reduxstore/slices/Cartslice";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 const Dis_box = ({ item_info }) => {
+  const cart_items = useSelector((state) => state.cart.items);
   const [addonsitem, setaddonsitem] = useState([]);
   const take_data = item_info?.card?.info;
+  const item_in_cart = () => {
+    const result = cart_items.filter(
+      (incart) => incart.Main_item.card.info.name === take_data.name
+    );
+    if (result.length > 0) {
+      console.log("found ", take_data.name, " in the cart");
+      return true;
+    }
+  };
+  console.log(item_in_cart(), " for ", take_data.name);
+  const [incartin, setincartin] = useState(item_in_cart());
   const dispatch = useDispatch();
+  const onRemove = () => {
+    setincartin(false);
+    dispatch(removeitem(take_data.name));
+
+    console.log("removing ", take_data.name);
+  };
+  console.log(cart_items);
+  // useEffect(() => {
+  //   const item_in_cart = () => {
+  //     const result = cart_items.filter(
+  //       (incart) => incart.Main_item.card.info.name === take_data.name
+  //     );
+  //     if (result.length > 0) {
+  //       console.log("found ", take_data.name, " in the cart");
+  //       return true;
+  //     }
+  //   };
+  //   item_in_cart();
+  // }, [cart_items]);
 
   const price_of_Food = take_data?.price
     ? take_data?.price / 100
@@ -64,6 +98,7 @@ const Dis_box = ({ item_info }) => {
   const pass_to_adoon = getaddon(take_data);
 
   const onadd = () => {
+    console.log("doing");
     setshowaddon(true);
   };
   const closeaddon = () => {
@@ -143,6 +178,7 @@ const Dis_box = ({ item_info }) => {
                   dispatch(
                     additem({ addons: addonsitem, Main_item: item_info })
                   );
+                  setincartin(true);
                   closeaddon();
                   toast(`${take_data?.name} is addded to the cart`);
                 }}
@@ -183,10 +219,16 @@ const Dis_box = ({ item_info }) => {
             ) : (
               ""
             )}
+            {incartin ? (
+              <button className="btnadds" onClick={onRemove}>
+                Remove
+              </button>
+            ) : (
+              <button className="btnadds" onClick={onadd}>
+                Add
+              </button>
+            )}
 
-            <button className="btnadds" onClick={onadd}>
-              Add
-            </button>
             {take_data && take_data.addons ? (
               <span className="btnaddsa">Customisable</span>
             ) : null}

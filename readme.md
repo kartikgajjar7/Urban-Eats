@@ -400,3 +400,22 @@ return null; // You can return null or some loading indicator here
           <div className="peretnaddon">
 
           </div>
+
+resdata.data?.cards[2]?.card.card.gridElements?.infoWithStyle
+.restaurants.length === 0 ?
+
+## crousel offers
+
+topical_banner
+
+## whats on mind
+
+whats_on_your_mind
+
+## crousel cards
+
+top_brands_for_you
+
+## main cards
+
+restaurant_grid_listing
