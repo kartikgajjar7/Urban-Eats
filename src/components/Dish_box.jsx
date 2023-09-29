@@ -108,8 +108,20 @@ const Dis_box = ({ item_info }) => {
     <>
       <div className="ppeerr">
         {showaddon ? (
-          <div className="peretnaddon">
-            <div className="addondiv">
+          <div
+            onScroll={(e) => {
+              e.preventDefault();
+              console.log("hry");
+              e.stopPropagation();
+            }}
+            className="peretnaddon"
+          >
+            <div
+              onScroll={() => {
+                e.stopPropagation();
+              }}
+              className="addondiv"
+            >
               <div className="upperad">
                 <div className="nameadd">
                   <p className="aiunf">{take_data?.name}</p>
@@ -174,6 +186,9 @@ const Dis_box = ({ item_info }) => {
                 </div>
               </div>
               <div
+                onScroll={() => {
+                  e.stopPropagation();
+                }}
                 onClick={() => {
                   dispatch(
                     additem({ addons: addonsitem, Main_item: item_info })
@@ -208,7 +223,12 @@ const Dis_box = ({ item_info }) => {
             </p>
             <p className="text_item_d">{take_data?.description}</p>
           </div>
-          <div className="disll">
+          <div
+            onScroll={() => {
+              e.stopPropagation();
+            }}
+            className="disll"
+          >
             {/* <div className="btnnnnn">Add</div> */}
             {take_data?.imageId ? (
               <img

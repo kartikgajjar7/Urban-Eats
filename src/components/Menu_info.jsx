@@ -45,7 +45,7 @@ export const Menu_info = () => {
   //     (data) => data.card.card?.["@type"].includes("ItemCategory")
   //   );
 
-  const Search_Data = cat_data_2.map((data) =>
+  const Search_Data = cat_data_2?.map((data) =>
     data.card.card.itemCards?.map((data) => data.card.info)
   );
 
