@@ -1,4 +1,4 @@
-Here's a suggested README.md file for your Urban-Eats project:
+
 
 # Urban-Eats
 
