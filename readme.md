@@ -1,6 +1,9 @@
+<h3 align="center">
+    <p>Urban-Eats</p>
+</h3>
 
+![IMG_2912](https://github.com/kartikgajjar7/Urban-Eats/assets/97971066/221f58ff-5ffb-4a80-b911-8649e1f14e2a)
 
-<center> <h1>Urban-Eats</h1> </center>
 
 
 Urban-Eats is a comprehensive food ordering web application that replicates the functionality of popular food delivery platforms like Swiggy. Built using React.js for the frontend and Redux.js for state management, this project seamlessly integrates with the Swiggy backend API to fetch real-time data, including cities, restaurants, menu items, prices, add-ons, and more.
