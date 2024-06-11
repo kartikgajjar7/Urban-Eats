@@ -5,7 +5,7 @@ Urban-Eats is a comprehensive food ordering web application that replicates the 
 
 <div style="display: flex; align-items: center;">
   <img src="https://github.com/kartikgajjar7/Urban-Eats/assets/97971066/221f58ff-5ffb-4a80-b911-8649e1f14e2a" alt="IMG_2912" width="45%" style="height: 300px; object-fit: cover;">
-  <img src="https://github.com/kartikgajjar7/Urban-Eats/assets/97971066/a0ea4ed3-cd42-4baa-8a7e-d79560719218" alt="IMG_4792" width="45%" style="height: 300px; object-fit: cover;">
+  <img src="https://github.com/kartikgajjar7/Urban-Eats/assets/97971066/a0ea4ed3-cd42-4baa-8a7e-d79560719218" alt="IMG_4792" width="45%" style="height: 100%; object-fit: cover;">
 </div>
 
 
